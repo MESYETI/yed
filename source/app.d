@@ -153,6 +153,12 @@ class Editor {
 			current = Pop().to!long();
 			if (current !in buffers) buffers[current] = new Buffer();
 		});
+		cmds["f"] = Command([ArgType.Other], () {
+			auto param = Pop();
+			foreach (i, ref line ; buffers[current].buf) {
+				if (line.canFind(param)) writefln("%d\t%s", i + 1, line);
+			}
+		});
 	}
 
 	string Pop() {
