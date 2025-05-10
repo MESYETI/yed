@@ -151,6 +151,9 @@ class Editor {
 				if (line.canFind(param)) writefln("%d\t%s", i + 1, line);
 			}
 		});
+		cmds["d"] = Command([ArgType.Integer], () {
+			buffers[current].buf = buffers[current].buf.remove(buffers[current].line);
+		});
 	}
 
 	string Pop() {

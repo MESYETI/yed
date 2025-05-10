@@ -54,3 +54,6 @@ it will be created
 
 #### `f ( str -- )`
 Prints all lines in the current buffer containing `str`
+
+#### `d (line -- )`
+Deletes `line` in the buffer
