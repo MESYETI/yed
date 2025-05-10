@@ -164,7 +164,7 @@ class Editor {
 	}
 
 	void RunCommand(string input) {
-		if (input[0] == '#') {
+		if ((input.length > 0) && (input[0] == '#')) {
 			string[] cmd;
 
 			try {
