@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/yed
+yed.so
+yed.dylib
+yed.dll
+yed.a
+yed.lib
+yed-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst

@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"MESYETI"
+	],
+	"copyright": "Copyright © 2025, MESYETI",
+	"description": "A CLI text editor",
+	"license": "MIT",
+	"name": "yed"
+}
