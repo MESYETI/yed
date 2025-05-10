@@ -1,12 +1,4 @@
-module yed.app;
-
-import std.file;
-import std.conv;
-import std.array;
-import std.stdio;
-import std.string;
-import std.algorithm;
-import core.stdc.stdlib;
+import std.file, std.conv, std.array, std.stdio, std.string, std.algorithm;
 
 string[] Parse(string str) {
 	string[] res;
@@ -211,7 +203,8 @@ class Editor {
 	}
 }
 
-void main(string[] args) {
+int main(string[] args) {
+	writeln("yed 1.0");
 	auto editor = new Editor();
 
 	foreach (i, ref arg ; args[1 .. $]) {
@@ -220,7 +213,7 @@ void main(string[] args) {
 		}
 		catch (Exception e) {
 			stderr.writefln("Failed to open '%s': %s", arg, e.msg);
-			exit(1);
+			return 1;
 		}
 	}
 
