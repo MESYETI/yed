@@ -1,4 +1,5 @@
-import std.file, std.conv, std.array, std.stdio, std.string, std.algorithm;
+import std.file, std.conv, std.array, std.stdio, std.string, std.algorithm, std.process;
+import core.stdc.stdlib;
 
 string[] Parse(string str) {
 	string[] res;
@@ -39,8 +40,9 @@ class Buffer {
 	static Buffer FromFile(string path) {
 		auto buf = new Buffer();
 		buf.buf  = readText(path).replace("\r\n", "\n").split('\n');
+		buf.path = path;
 
-		if (buf.buf[$ - 1] == "") buf.buf = buf.buf[0 .. $ - 1];
+		if ((buf.buf.length > 0) && (buf.buf[$ - 1] == "")) buf.buf = buf.buf[0 .. $ - 1];
 
 		return buf;
 	}
@@ -198,6 +200,9 @@ class Editor {
 					stack ~= part;
 				}
 			}
+		}
+		else if ((input.length > 0) && (input[0] == '$')) {
+			input[1 .. $].toStringz().system();
 		}
 		else {
 			++ buffers[current].line;
